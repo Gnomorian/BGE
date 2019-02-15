@@ -59,7 +59,7 @@ WindowsAlienLib::Load()
 {
 	handle = LoadLibrary(fileName);
 	if (handle == nullptr)
-		throw BGEexception("Failed to load forign library.", __LINE__, __FUNCTION__, __FILE__);
+		throw BGEexception("Failed to load forign library '%s'.", __LINE__, __FUNCTION__, __FILE__, fileName);
 }
 
 bool BGE::System::

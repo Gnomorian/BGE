@@ -2,6 +2,9 @@
 #define EXCEPTION_H
 
 #include <exception>
+#include <vector>
+#include <string>
+#include <stdio.h>
 
 namespace BGE
 {
@@ -14,12 +17,19 @@ namespace BGE
 			const char* function;
 			const char* file;
 			BGEexception(const char* msg, int pLine, const char* pFunction, const char* pFile, ...) : std::exception(msg), 
-				message(msg), 
+				message(nullptr), 
 				line(pLine), 
 				function(pFunction), 
 				file(pFile) 
 			{
-				//TODO: add processing to check for %s and search for them in va_args
+				char* buffer = new char[1024];
+				memset(buffer, 0, 1024 * sizeof(char));
+				va_list args;
+				va_start(args, msg);
+				sprintf_s(buffer, 1024, msg, args);
+				va_end(args);
+				int length = strlen(buffer);
+				message = buffer;
 			}
 			const char* what() const throw()
 			{
