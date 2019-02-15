@@ -18,3 +18,5 @@ will read a config that says what "mods" to load. writes logs (debug messages on
 
 TestGame is a dll which BGE loads like a "mod", you can have as many off these external dlls as you like, and they can hook into different parts of the engine to do what they will.
 This is where the bulk of the game will be, creates entities, handles player input, networking etc.
+
+Later when the basic wrappers and functionality for this is working, Tradegy will be updated to use this engine.
