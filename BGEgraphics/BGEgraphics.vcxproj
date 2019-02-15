@@ -78,11 +78,11 @@
     <TargetExt>.dll</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(SolutionDir)sfml\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)sfml\include;$(SolutionDir)BGEsystem;$(IncludePath)</IncludePath>
     <TargetExt>.dll</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(SolutionDir)sfml\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)sfml\include;$(SolutionDir)BGEsystem;$(IncludePath)</IncludePath>
     <TargetExt>.dll</TargetExt>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -133,6 +133,12 @@
     <ProjectReference Include="..\BGEsystem\BGEsystem.vcxproj">
       <Project>{dd24c9ee-67e5-4770-a8ee-334652ce4d98}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Window.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="SFMLWindow.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

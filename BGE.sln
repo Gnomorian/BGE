@@ -16,7 +16,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BGEnetwork", "BGEnetwork\BG
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BGEgraphics", "BGEgraphics\BGEgraphics.vcxproj", "{2DD23173-99F2-417F-9BA9-16948EF95629}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestGame", "..\TestGame\TestGame.vcxproj", "{F981BCB7-6808-4784-9C42-70F9C55B7661}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestGame", "TestGame\TestGame.vcxproj", "{F981BCB7-6808-4784-9C42-70F9C55B7661}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

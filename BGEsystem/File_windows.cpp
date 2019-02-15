@@ -1,9 +1,7 @@
 #include "File.h"
 #include <assert.h>
 
-using namespace BGE;
-using namespace System;
-
+BGE::System::
 FileWindows::FileWindows()
 {
 	fileHandle = nullptr;
@@ -11,12 +9,14 @@ FileWindows::FileWindows()
 	share = FILE_SHARE_READ;
 }
 
+BGE::System::
 FileWindows::~FileWindows()
 {
 	CloseHandle(fileHandle);
 }
 
-bool FileWindows::Open()
+bool BGE::System::
+FileWindows::Open()
 {
 	if (fileHandle != nullptr)
 	{
@@ -26,14 +26,16 @@ bool FileWindows::Open()
 	return (bool)fileHandle;
 }
 
-bool FileWindows::Close()
+bool BGE::System::
+FileWindows::Close()
 {
 	CloseHandle(fileHandle);
 	fileHandle = nullptr;
 	return true;
 }
 
-bool FileWindows::SetFilename(const char* name, int length)
+bool BGE::System::
+FileWindows::SetFilename(const char* name, int length)
 {
 	/*
 		if the filename exists, this is going to be a new file, so lets close the old file.
@@ -52,7 +54,8 @@ bool FileWindows::SetFilename(const char* name, int length)
 	return true;
 }
 
-char FileWindows::ReadChar()
+char BGE::System::
+FileWindows::ReadChar()
 {
 	if (EndOfFile())
 	{
@@ -74,12 +77,14 @@ char FileWindows::ReadChar()
 	return 0;
 }
 
-const char* FileWindows::ReadLine()
+const char* BGE::System::
+FileWindows::ReadLine()
 {
 	return false;
 }
 
-const char* FileWindows::ReadString()
+const char* BGE::System::
+FileWindows::ReadString()
 {
 	char buffer[1024] = {0};
 	unsigned long bytesRead = 0;
@@ -119,50 +124,59 @@ const char* FileWindows::ReadString()
 	return nullptr;
 }
 
-bool FileWindows::IsOpen()
+bool BGE::System::
+FileWindows::IsOpen()
 {
 	return isOpen;
 }
 
-bool FileWindows::EndOfFile()
+bool BGE::System::
+FileWindows::EndOfFile()
 {
 	return isEndOfFile;
 }
 
-bool FileWindows::OpenInput()
+bool BGE::System::
+FileWindows::OpenInput()
 {
 	mode = Mode::F_READ;
 	return Open();
 }
 
-bool FileWindows::OpenOutput()
+bool BGE::System::
+FileWindows::OpenOutput()
 {
 	mode = Mode::F_WRITE;
 	return Open();
 }
 
-long FileWindows::CurrentOffset()
+long BGE::System::
+FileWindows::CurrentOffset()
 {
 	return currentOffset;
 }
 
-void FileWindows::SetMode(IFile::Mode mode)
+void BGE::System::
+FileWindows::SetMode(IFile::Mode mode)
 {
 	this->mode = mode;
 }
 
-void FileWindows::SetShareMode(IFile::Share share)
+void BGE::System::
+FileWindows::SetShareMode(IFile::Share share)
 {
 	this->share = share;
 }
 
-bool FileWindows::Purge()
+bool BGE::System::
+FileWindows::Purge()
 {
 	Close();
 	return DeleteFile(fileName);
 }
 
-bool FileWindows::Rename(const char* newFileName)
+bool BGE::System::
+FileWindows::Rename(const char* newFileName)
 {
 	if (fileName)
 	{
@@ -177,7 +191,8 @@ bool FileWindows::Rename(const char* newFileName)
 	return false;
 }
 
-bool FileWindows::Seek(IFile::Position from, long long distance)
+bool BGE::System::
+FileWindows::Seek(IFile::Position from, long long distance)
 {
 	long* higherBit = (long*)&distance;
 	SetFilePointer(fileHandle, distance, higherBit++, from);
