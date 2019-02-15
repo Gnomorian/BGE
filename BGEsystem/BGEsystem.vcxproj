@@ -130,10 +130,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AlienLib.h" />
     <ClInclude Include="build.h" />
+    <ClInclude Include="Exception.h" />
     <ClInclude Include="File.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AlienLib_windows.cpp" />
     <ClCompile Include="File_windows.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

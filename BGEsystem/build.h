@@ -7,6 +7,9 @@
 // define if its windows or not
 
 #define BGE_WINDOWS
-//#define BGE_LINUX
+
+#ifndef BGE_WINDOWS
+#define BGE_LINUX
+#endif // !BGE_WINDOWS
 
 #define EXPORT __declspec(dllexport)
