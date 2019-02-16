@@ -80,7 +80,7 @@ namespace BGE
 #ifdef BGE_WINDOWS
 
 #include <windows.h>
-#define File FileWindows
+#define File BGE::System::FileWindows
 
 		class EXPORT FileWindows : public IFile
 		{

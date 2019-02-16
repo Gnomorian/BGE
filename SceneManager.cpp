@@ -6,7 +6,6 @@ SceneManager::SceneManager()
 {
 }
 
-
 SceneManager::~SceneManager()
 {
 }

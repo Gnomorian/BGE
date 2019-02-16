@@ -26,7 +26,7 @@ namespace BGE
 				memset(buffer, 0, 1024 * sizeof(char));
 				va_list args;
 				va_start(args, msg);
-				sprintf_s(buffer, 1024, msg, args);
+				sprintf_s(buffer, 1024 * sizeof(char), msg, args);
 				va_end(args);
 				int length = strlen(buffer);
 				message = buffer;
