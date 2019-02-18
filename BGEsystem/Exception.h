@@ -1,16 +1,16 @@
-#ifndef EXCEPTION_H
-#define EXCEPTION_H
+#ifndef BGE_EXCEPTION_H
+#define BGE_EXCEPTION_H
 
 #include <exception>
 #include <vector>
 #include <string>
-#include <stdio.h>
+#include <iostream>
 
 namespace BGE
 {
 	namespace System
 	{
-		struct BGEexception : std::exception
+		struct EXPORT BGEexception : std::exception
 		{
 			const char* message;
 			int line;

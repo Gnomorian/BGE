@@ -1,5 +1,5 @@
-#ifndef FILE_H
-#define FILE_H
+#ifndef BGE_FILE_H
+#define BGE_FILE_H
 
 #include "build.h"
 
@@ -19,13 +19,13 @@ namespace BGE
 			char lastChar;
 			bool isEndOfFile;
 		public:
-			virtual enum Mode
+			enum Mode
 			{
 				F_READ,
 				F_WRITE
 			};
 
-			virtual enum Share
+			enum Share
 			{
 				F_SHARE_READ,
 				F_SHARE_WRITE,
@@ -33,7 +33,7 @@ namespace BGE
 				F_SHARE_EXCLUSIVE
 			};
 
-			virtual enum Position
+			enum Position
 			{
 				F_BEGINING,
 				F_CURRENT,
@@ -93,7 +93,7 @@ namespace BGE
 				F_WRITE = GENERIC_WRITE
 			} Mode;
 
-			typedef enum Share
+			enum Share
 			{
 				F_SHARE_READ = FILE_SHARE_READ,
 				F_SHARE_WRITE = FILE_SHARE_WRITE,
@@ -101,12 +101,12 @@ namespace BGE
 				F_SHARE_EXCLUSIVE = 0
 			};
 
-			typedef enum Position
+			enum Position
 			{
 				F_BEGINING = FILE_BEGIN,
 				F_CURRENT = FILE_CURRENT,
 				F_END = FILE_END
-			} Position;
+			};
 
 			FileWindows();
 			~FileWindows();

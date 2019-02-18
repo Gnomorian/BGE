@@ -137,14 +137,12 @@
     <ClInclude Include="Exception.h" />
     <ClInclude Include="File.h" />
     <ClInclude Include="FileSystem.h" />
-    <ClInclude Include="INIFile.h" />
     <ClInclude Include="Logger.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AlienLib_windows.cpp" />
-    <ClCompile Include="FileSystem.cpp" />
+    <ClCompile Include="FileSystem_windows.cpp" />
     <ClCompile Include="File_windows.cpp" />
-    <ClCompile Include="INIFile.cpp" />
     <ClCompile Include="Logger.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

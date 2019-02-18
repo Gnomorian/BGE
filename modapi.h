@@ -1,16 +1,18 @@
-#ifndef MODAPI_H
-#define MODAPI_H
-
-#ifdef _CORE
-#define MODAPI extern "C" __declspec(dllimport)
-#else
-#define MODAPI extern "C" __declspec(dllexport)
-#endif
+#ifndef BGE_MODAPI_H
+#define BGE_MODAPI_H
 
 #define CALL __stdcall
 
-#include "scene.h"
-	MODAPI void CALL WriteStuff();
-	MODAPI Scene* CALL GetScene();
+#ifdef _CORE
+#define MODAPI extern "C" __declspec(dllimport)
+
+typedef void(__cdecl *WriteStuff)(void);
+
+#else
+#define MODAPI extern "C" __declspec(dllexport)
+
+MODAPI void CALL WriteStuff();
+
+#endif
 
 #endif // !MODAPI_H

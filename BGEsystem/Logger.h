@@ -1,5 +1,5 @@
-#ifndef LOGGER_H
-#define LOGGER_H
+#ifndef BGE_LOGGER_H
+#define BGE_LOGGER_H
 
 #include "build.h"
 #include "FileSystem.h"
@@ -15,7 +15,6 @@ namespace BGE
 			~ILogger();
 			void Info(const char* message);
 			void Log(const char* message);
-
 		};
 
 #ifdef BGE_WINDOWS

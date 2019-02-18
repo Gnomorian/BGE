@@ -1,5 +1,5 @@
-#ifndef FILE_SYSTEM_H
-#define FILE_SYSTEM_H
+#ifndef BGE_FILE_SYSTEM_H
+#define BGE_FILE_SYSTEM_H
 
 #include "build.h"
 

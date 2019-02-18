@@ -1,7 +1,8 @@
-#pragma once
+#ifndef BGE_SCENE_MANAGER_H
+#define BGE_SCENE_MANAGER_H
 
-#include <map>
 #include "scene.h"
+#include <map>
 
 class SceneManager
 {
@@ -15,3 +16,4 @@ private:
 	std::map<const char*, Scene*> scenes;
 };
 
+#endif // !BGE_SCENE_H

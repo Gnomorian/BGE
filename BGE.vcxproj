@@ -78,12 +78,12 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>$(SolutionDir)BGEsystem;$(SolutionDir)BGEnetwork;$(SolutionDir)BGEgraphics;$(SolutionDir)BGEaudio;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)x64\Debug;$(LibraryPath)</LibraryPath>
-    <OutDir>$(SolutionDir)Build\Debug\Bin</OutDir>
+    <OutDir>$(SolutionDir)Build\Debug\Bin\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>$(SolutionDir)BGEsystem;$(SolutionDir)BGEnetwork;$(SolutionDir)BGEgraphics;$(SolutionDir)BGEaudio;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)x64\Release;$(LibraryPath)</LibraryPath>
-    <OutDir>$(SolutionDir)Build\Release\Bin</OutDir>
+    <OutDir>$(SolutionDir)Build\Release\Bin\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -132,8 +132,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="GameRunner.cpp" />
+    <ClCompile Include="INIFile.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="SceneManager.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -142,8 +143,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="GameRunner.h" />
+    <ClInclude Include="INIFile.h" />
     <ClInclude Include="modapi.h" />
-    <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="scene.h" />
     <ClInclude Include="SceneManager.h" />
   </ItemGroup>

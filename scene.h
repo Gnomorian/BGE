@@ -1,5 +1,5 @@
-#ifndef SCENE_H
-#define SCENE_H
+#ifndef BGE_SCENE_H
+#define BGE_SCENE_H
 
 #ifdef _CORE
 #define SCENE_IE __declspec(dllimport)
@@ -8,7 +8,7 @@
 #endif // _EXPORT
 
 
-class Scene
+class SCENE_IE Scene
 {
 public:
 	virtual void Load() = 0;
