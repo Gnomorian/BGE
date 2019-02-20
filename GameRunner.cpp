@@ -1,6 +1,5 @@
 #include "GameRunner.h"
 #include "modapi.h"
-#include <map>
 
 BGE::Engine::
 GameRunner::GameRunner() : inifile("..\\BGE.ini", 10)

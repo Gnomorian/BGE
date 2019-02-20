@@ -4,6 +4,7 @@
 BGE::System::
 WindowsAlienLib::WindowsAlienLib(const char* name)
 {
+	handle = nullptr;
 	SetFilename(name);
 }
 
@@ -59,13 +60,21 @@ WindowsAlienLib::Load()
 {
 	handle = LoadLibrary(fileName);
 	if (handle == nullptr)
+	{
 		throw BGEexception("Failed to load forign library '%s'.", __LINE__, __FUNCTION__, __FILE__, fileName);
+		return false;
+	}
+	return true;
 }
 
 bool BGE::System::
 WindowsAlienLib::Unload()
 {
-	if(FreeLibrary(handle) == false)
+	if (FreeLibrary(handle) == false)
+	{
 		throw BGEexception("Failed to unload forign library.", __LINE__, __FUNCTION__, __FILE__);
+		return false;
+	}
 	handle = nullptr;
+	return true;
 }

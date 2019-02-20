@@ -28,7 +28,7 @@ namespace BGE
 				va_start(args, msg);
 				sprintf_s(buffer, 1024 * sizeof(char), msg, args);
 				va_end(args);
-				int length = strlen(buffer);
+				size_t length = strlen(buffer);
 				message = buffer;
 			}
 			const char* what() const throw()

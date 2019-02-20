@@ -5,8 +5,8 @@ BGE::System::
 FileWindows::FileWindows()
 {
 	fileHandle = nullptr;
-	mode = Mode::F_READ | Mode::F_WRITE;
-	share = FILE_SHARE_READ;
+	mode = Mode::BGE_F_READ | Mode::BGE_F_WRITE;
+	share = Share::BGE_F_SHARE_READ;
 }
 
 BGE::System::
@@ -35,7 +35,7 @@ FileWindows::Close()
 }
 
 bool BGE::System::
-FileWindows::SetFilename(const char* name, int length)
+FileWindows::SetFilename(const char* name, size_t length)
 {
 	/*
 		if the filename exists, this is going to be a new file, so lets close the old file.
@@ -91,7 +91,7 @@ FileWindows::ReadString()
 	unsigned long totalBytes = 0;
 	char* content = nullptr;
 	unsigned long contentPosition = 0;
-	// read file until you cant read no more.
+	// read file until you can't read no more.
 	while (ReadFile(fileHandle, &buffer, 1024, &bytesRead, NULL))
 	{
 		totalBytes += 1024;
@@ -104,7 +104,7 @@ FileWindows::ReadString()
 		}
 		else
 		{
-			assert("out of memory! %s(%s) %s", __FUNCTION__, __LINE__, __FILE__);
+			assert("out of memory!");
 		}
 		currentOffset += totalBytes;
 		isEndOfFile = true;
@@ -117,7 +117,7 @@ FileWindows::ReadString()
 		}
 		else
 		{
-			assert("out of memory! %s(%s) %s", __FUNCTION__, __LINE__, __FILE__);
+			assert("out of memory!");
 		}
 		return content;
 	}
@@ -139,14 +139,14 @@ FileWindows::EndOfFile()
 bool BGE::System::
 FileWindows::OpenInput()
 {
-	mode = Mode::F_READ;
+	mode = Mode::BGE_F_READ;
 	return Open();
 }
 
 bool BGE::System::
 FileWindows::OpenOutput()
 {
-	mode = Mode::F_WRITE;
+	mode = Mode::BGE_F_WRITE;
 	return Open();
 }
 

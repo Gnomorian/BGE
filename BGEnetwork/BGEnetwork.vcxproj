@@ -81,12 +81,12 @@
     <IncludePath>$(SolutionDir)sfml\include;$(IncludePath)</IncludePath>
     <TargetExt>.dll</TargetExt>
     <LibraryPath>$(SolutionDir)x64\Debug;$(LibraryPath)</LibraryPath>
-    <OutDir>$(SolutionDir)Build\Debug\Bin</OutDir>
+    <OutDir>$(SolutionDir)Build\Debug\Bin\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>$(SolutionDir)sfml\include;$(IncludePath)</IncludePath>
     <TargetExt>.dll</TargetExt>
-    <OutDir>$(SolutionDir)Build\Release\Bin</OutDir>
+    <OutDir>$(SolutionDir)Build\Release\Bin\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

@@ -11,7 +11,7 @@ namespace BGE
 		{
 		protected:
 			char* fileName;
-			int fileNameLength;
+			size_t fileNameLength;
 			bool isOpen;
 			int mode;
 			int share;
@@ -21,23 +21,23 @@ namespace BGE
 		public:
 			enum Mode
 			{
-				F_READ,
-				F_WRITE
+				BGE_F_READ,
+				BGE_F_WRITE
 			};
 
 			enum Share
 			{
-				F_SHARE_READ,
-				F_SHARE_WRITE,
-				F_SHARE_DELETE,
-				F_SHARE_EXCLUSIVE
+				BGE_F_SHARE_READ,
+				BGE_F_SHARE_WRITE,
+				BGE_F_SHARE_DELETE,
+				BGE_F_SHARE_EXCLUSIVE
 			};
 
 			enum Position
 			{
-				F_BEGINING,
-				F_CURRENT,
-				F_END
+				BGE_F_BEGINING,
+				BGE_F_CURRENT,
+				BGE_F_END
 			};
 
 			IFile() { fileName = nullptr; fileNameLength = 0; isOpen = false; mode = 0; share = 0; currentOffset = 0; lastChar = -1; isEndOfFile = true; }
@@ -48,7 +48,7 @@ namespace BGE
 			// closes an open file
 			virtual bool Close() = 0;
 			// sets the filename to be opened, changes the current file for this object, if it is already set.
-			virtual bool SetFilename(const char* name, int length) = 0;
+			virtual bool SetFilename(const char* name, size_t length) = 0;
 			// Returns the next character in the file.
 			virtual char ReadChar() = 0;
 			// Returns the next line in the file.
@@ -89,30 +89,30 @@ namespace BGE
 		public:
 			typedef enum Mode
 			{
-				F_READ = GENERIC_READ,
-				F_WRITE = GENERIC_WRITE
+				BGE_F_READ = GENERIC_READ,
+				BGE_F_WRITE = GENERIC_WRITE
 			} Mode;
 
 			enum Share
 			{
-				F_SHARE_READ = FILE_SHARE_READ,
-				F_SHARE_WRITE = FILE_SHARE_WRITE,
-				F_SHARE_DELETE = FILE_SHARE_DELETE,
-				F_SHARE_EXCLUSIVE = 0
+				BGE_F_SHARE_READ = FILE_SHARE_READ,
+				BGE_F_SHARE_WRITE = FILE_SHARE_WRITE,
+				BGE_F_SHARE_DELETE = FILE_SHARE_DELETE,
+				BGE_F_SHARE_EXCLUSIVE = 0
 			};
 
 			enum Position
 			{
-				F_BEGINING = FILE_BEGIN,
-				F_CURRENT = FILE_CURRENT,
-				F_END = FILE_END
+				BGE_F_BEGINING = FILE_BEGIN,
+				BGE_F_CURRENT = FILE_CURRENT,
+				BGE_F_END = FILE_END
 			};
 
 			FileWindows();
 			~FileWindows();
 			bool Open() override;
 			bool Close() override;
-			bool SetFilename(const char* name, int length) override;
+			bool SetFilename(const char* name, size_t length) override;
 			char ReadChar() override;
 			const char* ReadLine() override;
 			const char* ReadString() override;
@@ -130,20 +130,8 @@ namespace BGE
 		};
 #else // just get windows working first, this is here as a shame thing, if I dont add it.
 #define File FileLinux
-
-		class EXPORT FileLinux : public IFile
-		{
-		private:
-			HANDLE fileHandle;
-		public:
-			FileLinux();
-			~FileLinux();
-			bool Open() override;
-			bool Close() override;
-			bool SetFilename(const char* name, int length) override;
-			char NextChar() override;
-			const char* NextLine() override;
-		};
+#define File BGE::System::LinuxFile
+		
 #endif // BGE_WINDOWS
 	}
 }
