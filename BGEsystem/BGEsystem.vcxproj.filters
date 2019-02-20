@@ -41,10 +41,10 @@
     <ClCompile Include="AlienLib_windows.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Logger.cpp">
+    <ClCompile Include="FileSystem_windows.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FileSystem_windows.cpp">
+    <ClCompile Include="Logger_windows.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

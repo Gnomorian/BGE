@@ -2,6 +2,7 @@
 #define BGE_FILE_H
 
 #include "build.h"
+#include <iostream>
 
 namespace BGE
 {

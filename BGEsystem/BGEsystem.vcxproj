@@ -143,7 +143,7 @@
     <ClCompile Include="AlienLib_windows.cpp" />
     <ClCompile Include="FileSystem_windows.cpp" />
     <ClCompile Include="File_windows.cpp" />
-    <ClCompile Include="Logger.cpp" />
+    <ClCompile Include="Logger_windows.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
