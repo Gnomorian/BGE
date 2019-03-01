@@ -1,14 +1,7 @@
 #include "modapi.h"
-#include "MyScene.h"
-#include <iostream>
+#include "Game.h"
 
-Scene* GetScene()
+BGE::System::IGame* AlienGetGame()
 {
-	MyScene* scene = new MyScene;
-	return scene;
-}
-
-void WriteStuff()
-{
-	printf("Hello, isnt it a beautiful world!\nArnt you learning stufff!");
+	return new Game;
 }

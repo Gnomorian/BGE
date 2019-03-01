@@ -135,6 +135,7 @@
     <ClCompile Include="GameRunner.cpp" />
     <ClCompile Include="INIFile.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="ModFFI.cpp" />
     <ClCompile Include="SceneManager.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -146,6 +147,7 @@
     <ClInclude Include="GameRunner.h" />
     <ClInclude Include="INIFile.h" />
     <ClInclude Include="modapi.h" />
+    <ClInclude Include="ModFFI.h" />
     <ClInclude Include="scene.h" />
     <ClInclude Include="SceneManager.h" />
   </ItemGroup>

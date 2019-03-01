@@ -3,6 +3,7 @@
 
 #include "INIFile.h"
 #include "BGEsystem/AlienLib.h"
+#include "BGEsystem/Mod.h"
 
 namespace BGE
 {
@@ -14,11 +15,12 @@ namespace BGE
 		public:
 			GameRunner();
 			~GameRunner();
-			void Run();
+			bool Run();
 			bool Initialize();
 		private:
 			INIFile inifile;
-			AlienLib game;
+			AlienLib gamedll;
+			System::IMod* gameInterface;
 		};
 	}
 }
