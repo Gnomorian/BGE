@@ -31,6 +31,10 @@ namespace BGE
 				size_t length = strlen(buffer);
 				message = buffer;
 			}
+			~BGEexception()
+			{
+				delete message;
+			}
 			const char* what() const throw()
 			{
 				return message;

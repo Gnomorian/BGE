@@ -8,14 +8,12 @@
 #ifdef _CORE
 #define MODAPI extern "C" __declspec(dllimport)
 
-typedef BGE::System::IGame*(__cdecl *AlienGetGame)(void);
-typedef BGE::System::IMod*(__cdecl *AlienGetMod)(void);
+typedef BGE::System::IGame*(__cdecl *LoadBGEMod)(void);
 
 #else
 #define MODAPI extern "C" __declspec(dllexport)
 
-MODAPI BGE::System::IGame* CALL AlienGetGame();
-MODAPI BGE::System::IMod* CALL AlienGetMod();
+MODAPI BGE::System::IGame* CALL LoadBGEMod();
 
 #endif
 

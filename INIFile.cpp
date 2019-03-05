@@ -22,7 +22,7 @@ INIFile::~INIFile()
 const char* BGE::Engine::
 INIFile::GetIniFilename()
 {
-	return nullptr;
+	return file->GetFilename();
 }
 
 const char* BGE::Engine::
@@ -49,10 +49,36 @@ INIFile::GetBool(const char* category, const char* setting, bool defaultValue)
 	return 0;
 }
 
+inline void GetCategoryName(char* character, char* categoryName[])
+{
+	if(*character == '[')
+		character++;
+	int length = 0;
+	for(char* chr = character; *chr != ']'; chr++)
+		length++;
+	char* result = (char*)realloc(*categoryName, length + 1);
+	result[length] = 0;
+	if (result)
+		*categoryName = result;
+}
+
 void BGE::Engine::
 INIFile::ParseInifile()
 {
-
+	char* currentCategoryName = nullptr;
+	const char* content = file->ReadString();
+	for(char* character = (char*)content; character; character++)
+	{
+		if(*character == '[')
+		{
+			GetCategoryName(character, &currentCategoryName);
+			character++;
+		}
+		else
+		{
+			// get the settings within this category
+		}
+	}
 }
 
 void BGE::Engine::

@@ -54,6 +54,12 @@ FileWindows::SetFilename(const char* name, size_t length)
 	return true;
 }
 
+const char* BGE::System::
+FileWindows::GetFilename()
+{
+	return this->fileName;
+}
+
 char BGE::System::
 FileWindows::ReadChar()
 {

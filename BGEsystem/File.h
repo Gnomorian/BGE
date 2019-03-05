@@ -50,6 +50,8 @@ namespace BGE
 			virtual bool Close() = 0;
 			// sets the filename to be opened, changes the current file for this object, if it is already set.
 			virtual bool SetFilename(const char* name, size_t length) = 0;
+			// gets the filename this file object currently has opened.
+			virtual const char* GetFilename() = 0;
 			// Returns the next character in the file.
 			virtual char ReadChar() = 0;
 			// Returns the next line in the file.
@@ -114,6 +116,7 @@ namespace BGE
 			bool Open() override;
 			bool Close() override;
 			bool SetFilename(const char* name, size_t length) override;
+			const char* GetFilename() override;
 			char ReadChar() override;
 			const char* ReadLine() override;
 			const char* ReadString() override;
