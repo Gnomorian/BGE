@@ -40,7 +40,8 @@ INIFile::GetInt(const char* category, const char* setting, int defaultValue)
 const char* BGE::Engine::
 INIFile::GetString(const char* category, const char* setting, const char* defaultValue)
 {
-	return nullptr;
+	//TODO: implement this properly, for now hack it so i can do more interesting things
+	return "C:\\Users\\cnwwc5\\Documents\\BGE\\Build\\Debug\\Data\\Bin\\TestGame.dll";
 }
 
 int BGE::Engine::

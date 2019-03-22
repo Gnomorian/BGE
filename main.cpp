@@ -6,7 +6,15 @@
 int WINAPI WinMain(HINSTANCE instance, HINSTANCE prevInstance, LPSTR cmdline, int cmdShow)
 {
 	BGE::Engine::GameRunner runner;
-	//runner.Run();
+	try
+	{
+		runner.Run();
+	}
+	catch (std::exception& e)
+	{
+		MessageBox(nullptr, e.what(), "ERROR", MB_OK | MB_ICONSTOP);
+		return 1;
+	}
 
 	return 0;
 }

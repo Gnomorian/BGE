@@ -27,7 +27,7 @@ void BGE::System::
 WindowsAlienLib::SetFilename(const char* name)
 {
 	if (fileName)
-		return; // throw exception, already initialized.
+		return; //TODO: throw exception, already initialized.
 	size_t length = strlen(name);
 	SetFilename(name, length);
 }
@@ -61,7 +61,10 @@ WindowsAlienLib::Load()
 	handle = LoadLibrary(fileName);
 	if (handle == nullptr)
 	{
-		throw BGEexception("Failed to load forign library '%s'.", __LINE__, __FUNCTION__, __FILE__, fileName);
+		//throw BGEexception("Failed to load forign library '%s'.", __LINE__, __FUNCTION__, __FILE__, fileName);
+		char buffer[1024] = {};
+		sprintf_s(buffer, 1024 * sizeof(char), "Failed to load forign library \"%s\"\0 %s::%s(%d)", fileName, __FILE__, __FUNCTION__, __LINE__);
+		throw std::exception(buffer);
 		return false;
 	}
 	return true;

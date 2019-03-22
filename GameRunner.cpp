@@ -4,14 +4,11 @@
 BGE::Engine::
 GameRunner::GameRunner() : inifile("..\\BGE.ini", 10)
 {
+	initialized = false;
 	const char* gamename = inifile.GetString("mods", "game", nullptr);
 	if (gamename != nullptr)
 	{
 		gamedll.SetFilename(gamename);
-		if (gamedll.Load() && Initialize())
-		{
-			Run();
-		}
 	}
 }
 
@@ -23,46 +20,28 @@ GameRunner::~GameRunner()
 bool BGE::Engine::
 GameRunner::Run()
 {
-	if (Initialize())
+	Initialize();
+	if (initialized)
 	{
-		// find if this dll is a mod or the game.
-		AlienGetGame gameclass = (AlienGetGame)gamedll.GetFunction("GetGame");
-		System::IGame* gam = (gameclass)();
-		AlienGetMod modclass = (AlienGetMod)gamedll.GetFunction("GetMod");
-		System::IMod* mod = (modclass)();
-
-		if(gam)
+		// get the interface for all the loaded mods in a priority queue
+		LoadBGEMod getInterface = (LoadBGEMod)gamedll.GetFunction("LoadBGEMod");
+		System::IGame* gam = (getInterface)();
+		while (gam->IsRunning())
 		{
-			if (mod)
-			{
-				printf("%s has a mod and game implementation, this is invalid.\n", gamedll.GetFilename());
-				return false;
-			}
-			while(true)
-			{
-				gam->Update();
-				gam->Draw();
-			}
+			gam->Update();
 		}
-		else
-		{
-			if (gam)
-			{
-				printf("%s has a mod and game implementation, this is invalid.\n", gamedll.GetFilename());
-				return false;
-			}
-			// add too the list of mods in priority queue
-		}
+		gam->Cleanup();
 	}
 	else
 	{
 		return false;
 	}
-	
 }
 
 bool BGE::Engine::
 GameRunner::Initialize()
 {
-	return gamedll.Load();
+	if (initialized)
+		return true;
+	return initialized = gamedll.Load();
 }

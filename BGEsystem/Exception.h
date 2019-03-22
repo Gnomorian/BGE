@@ -10,7 +10,7 @@ namespace BGE
 {
 	namespace System
 	{
-		struct EXPORT BGEexception : std::exception
+		struct EXPORT BGEexception : public std::exception
 		{
 			const char* message;
 			int line;

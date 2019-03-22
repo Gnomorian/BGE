@@ -21,6 +21,7 @@ namespace BGE
 			INIFile inifile;
 			AlienLib gamedll;
 			System::IMod* gameInterface;
+			bool initialized;
 		};
 	}
 }

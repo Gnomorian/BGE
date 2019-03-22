@@ -9,6 +9,8 @@ namespace BGE
 	{
 		class EXPORT IMod
 		{
+		protected:
+			//TODO: handles too singletons that interface with graphics, audio, network, system
 		public:
 			virtual void Update() = 0;
 			virtual void Draw() = 0;
@@ -16,11 +18,13 @@ namespace BGE
 			virtual const char* GetName() = 0;
 			virtual const char* GetDescription() = 0;
 			virtual int GetPriority() = 0;
+			virtual void Cleanup() = 0;
 		};
 
 		class IGame : public IMod
 		{
-
+		public:
+			virtual bool IsRunning() = 0;
 		};
 	}
 }
